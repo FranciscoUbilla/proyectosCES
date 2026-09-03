@@ -5,12 +5,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 public class Context{
     protected WebDriver driver;
     protected ConsoleMessage message;
+
+
     @BeforeEach
     void startWebDriver(TestInfo testInfo){
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        driver = new ChromeDriver(options);
         message = new ConsoleMessage();
         message.messageStartTest(testInfo.getDisplayName());
     }
