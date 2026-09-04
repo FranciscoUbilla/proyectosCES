@@ -2,7 +2,7 @@ package centro_deporte;
 
 
 public class MensajesConsola {
-
+    //manejo de mensajes
    public void iniciandoTest(String nombreTest){
         System.out.println("\n----------------------INICIANDO PRUEBA-----------------------");
         System.out.println("Ejecutando prueba: " + nombreTest);

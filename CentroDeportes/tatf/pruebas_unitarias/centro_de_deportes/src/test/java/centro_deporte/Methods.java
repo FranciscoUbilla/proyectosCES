@@ -32,6 +32,7 @@ public class Methods {
         driver.findElement(By.cssSelector(Selectors.BUTTON_CHECKOUT_CONTINUE)).click();
         driver.findElement(By.cssSelector(Selectors.BUTTON_CHECKOUT_FINISH)).click();
     }
+
     void waitonesecond() {
         try {
             Thread.sleep(1000);
