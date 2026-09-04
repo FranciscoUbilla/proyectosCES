@@ -10,6 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CentroDeDeporteTest extends contexto {
+
     @Test
     void buscardeporte_obtenerdeporte_obtenertodoslosdeportes(){
         //Arrange
@@ -23,7 +24,6 @@ class CentroDeDeporteTest extends contexto {
         mensaje.resultadoObtenido(resultado);
         assertInstanceOf(List.class, resultado);
     }
-
     @Test
         void buscar_obtenerdeporte_espacioenblanco(){
         CentroDeporte centro = new CentroDeporte();

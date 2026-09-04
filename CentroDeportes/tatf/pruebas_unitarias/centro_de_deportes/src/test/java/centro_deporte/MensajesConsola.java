@@ -25,5 +25,9 @@ public class MensajesConsola {
         System.out.println(etiqueta + ": "+ valor);
         System.out.println("Tipo: " + valor.getClass().getSimpleName());
     }
+    public void mensajeFinTest(){
+        System.out.println("\n----------------------END TEST-----------------------");
+    }
+
 
 }

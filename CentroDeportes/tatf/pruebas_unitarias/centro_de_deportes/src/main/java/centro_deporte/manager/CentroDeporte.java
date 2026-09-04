@@ -54,6 +54,6 @@ public class CentroDeporte implements ICentroDeporte {
 
     @Override
     public void eliminarDeporte(String nombreDeporte) {
-        listaDeportes.remove(nombreDeporte.toUpperCase());
+        listaDeportes.remove(nombreDeporte);
     }
 }
