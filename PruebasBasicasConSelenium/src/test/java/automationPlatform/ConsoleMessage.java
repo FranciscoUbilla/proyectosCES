@@ -18,7 +18,7 @@ public class ConsoleMessage {
         System.out.println("Tipo: " + result.getClass().getSimpleName());
     }
     public void messageEndTest(){
-        System.out.println("\n----------------------End TEST-----------------------");
+        System.out.println("\n----------------------END TEST-----------------------");
     }
 
 }

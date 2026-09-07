@@ -15,7 +15,9 @@ public class Context{
     @BeforeEach
     void startWebDriver(TestInfo testInfo){
         ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        options.addArguments("start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--disable-blink-features=AutomationControlled");
         driver = new ChromeDriver(options);
         message = new ConsoleMessage();
         message.messageStartTest(testInfo.getDisplayName());

@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.time.Duration;
 
 public class TestCaseChrome extends Context{
@@ -21,6 +20,5 @@ public class TestCaseChrome extends Context{
         String tituloObtenido = driver.getTitle();
         message.messageResultObtained(tituloObtenido);
         Assertions.assertEquals("Hola mundo - Wikipedia, la enciclopedia libre",tituloObtenido,"El titulo de la pagina no es el esperado");
-
     }
 }
