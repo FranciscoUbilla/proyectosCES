@@ -14,9 +14,9 @@ public class TestCaseChrome extends Context{
         Variables.entryValue = "hace strogonoff en 4 pasos";
         String expectedResult = "Recetas de strogonoff fáciles y rápidas";
         methods = new Methods(driver);
+        methods.setImplicitWait(10);
         methods.goPage(Variables.googleNavigationLink);
         methods.googleSearch(Variables.entryValue);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String searchResult = driver.findElement(By.xpath(Selectors.ASSERTION_GOOGLE_RESULTPAGE)).getText();
         message.messageResultObtained(searchResult);
         Assertions.assertEquals(expectedResult,searchResult,"El titulo de la pagina no es el esperado");
@@ -26,9 +26,9 @@ public class TestCaseChrome extends Context{
         Variables.entryValue = "https://drive.google.com/drive/u/0/folders/1s_nA3oEY_WM_pmAPCP0_DHQ_4ajhdjasdsad";
         String expectedResult = "No se han encontrado resultados para tu búsqueda ("+Variables.entryValue+").";
         methods = new Methods(driver);
+        methods.setImplicitWait(10);
         methods.goPage(Variables.googleNavigationLink);
         methods.googleSearch(Variables.entryValue);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String searchResult = driver.findElement(By.xpath(Selectors.ASSERTION_GOOGLE_EMPTYRESULT)).getText();
         message.messageResultObtained(searchResult);
         Assertions.assertEquals(expectedResult,searchResult,"El resultado de la pagina no es el esperado");
@@ -37,8 +37,8 @@ public class TestCaseChrome extends Context{
     void test_GOOGLETC003_SearchEmptyInput() throws InterruptedException{
         Variables.entryValue = "";
         methods = new Methods(driver);
+        methods.setImplicitWait(10);
         methods.goPage(Variables.googleNavigationLink);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         methods.googleSearch(Variables.entryValue);
         Thread.sleep(1500);
         String urlAfter = driver.getCurrentUrl();

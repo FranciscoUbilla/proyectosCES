@@ -15,11 +15,10 @@ public class TestCaseWikipedia extends Context{
     void test_WIKIPEDIAC001_Searchhola_mundo(){
         Variables.entryValue = "hola mundo";
         String expectedResult = "Hola mundo";
+        methods.setImplicitWait(10);
         methods = new Methods(driver);
         methods.goPage(Variables.wikipediaNavigationLink);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         methods.wikipediaSearch(Variables.entryValue);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String searchResult = driver.findElement(By.cssSelector(Selectors.ASSERTION_WIKIPEDIA_TITLERESULTPAGE)).getText();
         message.messageResultObtained(searchResult);
         Assertions.assertEquals(expectedResult,searchResult,"El titulo de la pagina no es el esperado");
@@ -28,11 +27,10 @@ public class TestCaseWikipedia extends Context{
     void test_WIKIPEDIAC002_Searchhello_world(){
         Variables.entryValue = "hello world";
         String expectedResult = "Hola mundo";
+        methods.setImplicitWait(10);
         methods = new Methods(driver);
         methods.goPage(Variables.wikipediaNavigationLink);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         methods.wikipediaSearch(Variables.entryValue);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String searchResult = driver.findElement(By.cssSelector(Selectors.ASSERTION_WIKIPEDIA_TITLERESULTPAGE)).getText();
         message.messageResultObtained(searchResult);
         Assertions.assertEquals(expectedResult,searchResult,"El titulo de la pagina no es el esperado");
@@ -42,8 +40,8 @@ public class TestCaseWikipedia extends Context{
     void test_WIKIPEDIAC003_Searchholamundo(){
         Variables.entryValue = "holamundo";
         methods = new Methods(driver);
+        methods.setImplicitWait(10);
         methods.goPage(Variables.wikipediaNavigationLink);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         methods.wikipediaSearch(Variables.entryValue);
         List<WebElement> searchResultsList = driver.findElements(By.cssSelector(Selectors.ASSERTION_WIKIPEDIA_SEARCHRESULTLIST));
         Assertions.assertFalse(searchResultsList.isEmpty(), "No se encontró ninguna lista de resultados");
