@@ -13,10 +13,17 @@ public class Methods {
     public void goPage(String linkNavigation){
         driver.get(linkNavigation);
     }
-    public void searchGoogle(String entryValue){
-        WebElement input = driver.findElement(By.cssSelector(Selectors.GOOGLE_INPUT_SEARCH));
+    public void googleSearch(String entryValue){
+        WebElement input = driver.findElement(By.cssSelector(Selectors.GOOGLE_SEARCH_INPUT));
         input.sendKeys(entryValue);
         input.submit();
 
+    }
+    public void wikipediaSearch(String entryValue){
+        WebElement inputContainer = driver.findElement(By.cssSelector(Selectors.WIKIPEDIA_SEARCH_INPUTCONTAINER));
+        inputContainer.click();
+        WebElement input = driver.findElement(By.cssSelector(Selectors.WIKIPEDIA_SEARCH_INPUT));
+        input.sendKeys(entryValue);
+        input.submit();
     }
 }

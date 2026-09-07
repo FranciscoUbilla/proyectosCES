@@ -14,10 +14,10 @@ public class TestCaseChrome extends Context{
         Variables.entryValue = "hace strogonoff en 4 pasos";
         String expectedResult = "Recetas de strogonoff fáciles y rápidas";
         methods = new Methods(driver);
-        methods.goPage(Variables.linkNavigatioNChrome);
-        methods.searchGoogle(Variables.entryValue);
+        methods.goPage(Variables.googleNavigationLink);
+        methods.googleSearch(Variables.entryValue);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String searchResult = driver.findElement(By.xpath(Selectors.ASSERTION_GOOGLE_RESULTPAGE_TC001)).getText();
+        String searchResult = driver.findElement(By.xpath(Selectors.ASSERTION_GOOGLE_RESULTPAGE)).getText();
         message.messageResultObtained(searchResult);
         Assertions.assertEquals(expectedResult,searchResult,"El titulo de la pagina no es el esperado");
     }
@@ -26,10 +26,10 @@ public class TestCaseChrome extends Context{
         Variables.entryValue = "https://drive.google.com/drive/u/0/folders/1s_nA3oEY_WM_pmAPCP0_DHQ_4ajhdjasdsad";
         String expectedResult = "No se han encontrado resultados para tu búsqueda ("+Variables.entryValue+").";
         methods = new Methods(driver);
-        methods.goPage(Variables.linkNavigatioNChrome);
-        methods.searchGoogle(Variables.entryValue);
+        methods.goPage(Variables.googleNavigationLink);
+        methods.googleSearch(Variables.entryValue);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String searchResult = driver.findElement(By.xpath(Selectors.ASSERTION_GOOGLE_EMPTYRESULT_TC002)).getText();
+        String searchResult = driver.findElement(By.xpath(Selectors.ASSERTION_GOOGLE_EMPTYRESULT)).getText();
         message.messageResultObtained(searchResult);
         Assertions.assertEquals(expectedResult,searchResult,"El resultado de la pagina no es el esperado");
     }
@@ -37,12 +37,12 @@ public class TestCaseChrome extends Context{
     void test_GOOGLETC003_SearchEmptyInput() throws InterruptedException{
         Variables.entryValue = "";
         methods = new Methods(driver);
-        methods.goPage(Variables.linkNavigatioNChrome);
+        methods.goPage(Variables.googleNavigationLink);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        methods.searchGoogle(Variables.entryValue);
+        methods.googleSearch(Variables.entryValue);
         Thread.sleep(1500);
         String urlAfter = driver.getCurrentUrl();
-        WebElement searchBox = driver.findElement(By.cssSelector(Selectors.GOOGLE_INPUT_SEARCH));
+        WebElement searchBox = driver.findElement(By.cssSelector(Selectors.GOOGLE_SEARCH_INPUT));
         String fieldValue = searchBox.getAttribute("value");
         message.messageResultObtained(urlAfter);
         Assertions.assertFalse(urlAfter.contains("/search?q="), "La URL no debería indicar que se ejecutó una búsqueda");
