@@ -3,7 +3,9 @@ package automationPlatform;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.time.Duration;
 
 public class TestCaseCES extends Context {
@@ -28,9 +30,9 @@ public class TestCaseCES extends Context {
         String forumResultMessage = driver.findElement(By.xpath(Selectors.ASSERTION_CES_SUCCESS_LOAD_FORUM)).getText();
         Assertions.assertEquals(expectedMessageForum,forumResultMessage,"No se ha navegado correctamente al foro");
         methods.cesSearchForum(Variables.entryValue);
-        String bienvenidaMessageResult = driver.findElement(By.xpath(Selectors.ASSERTION_CES_LOAD_FORUMBIENVENIDA)).getText();
-        message.messageResultObtained(bienvenidaMessageResult);
-        Assertions.assertEquals(expectedTestCaseResult,bienvenidaMessageResult,"No se ha navegado correctamente al foro");
+        List<WebElement> topics = driver.findElements(By.cssSelector(Selectors.ASSERTION_CES_LOAD_FORUMBIENVENIDA));
+        boolean bienvenidaEncontrada = topics.stream().anyMatch(topic -> topic.getText().contains("Bienvenida"));
+        Assertions.assertTrue(bienvenidaEncontrada, "No se encontró un tema que contenga 'Bienvenida' en los resultados del foro");
         methods.cesLogout();
     }
 

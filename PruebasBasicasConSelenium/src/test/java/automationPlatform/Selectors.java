@@ -20,5 +20,5 @@ public static final String ASSERTION_WIKIPEDIA_SEARCHRESULTLIST = ".mw-search-re
 public static final String ASSERTION_SUCCESS_LOGIN = "//p[contains(.,'¡Te damos la bienvenida al Aula Virtual!')]";
 public static final String ASSERTION_CES_SUCCESS_LOAD_TATF = "//h1[contains(text(), \"TALLER DE AUTOMATIZACIÓN\")]";
 public static final String ASSERTION_CES_SUCCESS_LOAD_FORUM = "//h2[contains(text(), \"Foros generales\")]";
-public static final String ASSERTION_CES_LOAD_FORUMBIENVENIDA = "//a[contains(text(), \"¡Bienvenid@s al curso!\")]";
+public static final String ASSERTION_CES_LOAD_FORUMBIENVENIDA = "article header h4 a:nth-of-type(2)";
 }

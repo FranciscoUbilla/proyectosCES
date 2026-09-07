@@ -45,9 +45,7 @@ public class TestCaseWikipedia extends Context{
         methods.wikipediaSearch(Variables.entryValue);
         List<WebElement> searchResultsList = driver.findElements(By.cssSelector(Selectors.ASSERTION_WIKIPEDIA_SEARCHRESULTLIST));
         Assertions.assertFalse(searchResultsList.isEmpty(), "No se encontró ninguna lista de resultados");
-        List<String> resultsText = searchResultsList.stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
+        List<String> resultsText = searchResultsList.stream().map(WebElement::getText).collect(Collectors.toList());
         message.messageResultObtained(resultsText.toString());
         Assertions.assertFalse(resultsText.isEmpty(), "La búsqueda no devolvió ningún resultado");
     }
