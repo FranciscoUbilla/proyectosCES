@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import java.time.Duration;
 
 public class DriverManager {
-    protected static final int IMPLICITLY_WAIT_DEFAULT_SECONDS = 10;
+    protected static final int IMPLICITLY_WAIT_DEFAULT_SECONDS = 5;
 
     protected WebDriver driver;
 

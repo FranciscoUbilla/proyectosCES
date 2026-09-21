@@ -113,7 +113,7 @@ public class Wait {
      */
     private void sleep(int seconds) {
         try {
-            Thread.sleep(seconds * 1000L);
+            Thread.sleep(seconds * 100L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

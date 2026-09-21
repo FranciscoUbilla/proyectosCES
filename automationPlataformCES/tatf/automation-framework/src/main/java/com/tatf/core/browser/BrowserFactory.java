@@ -4,7 +4,7 @@ import com.tatf.core.driver.factory.DriverType;
 import com.tatf.core.driver.instance.DriverManagerSingleton;
 
 public class BrowserFactory {
-    private static final int EXPLICIT_WAIT_DEFAULT_SECONDS = 10;
+    private static final int EXPLICIT_WAIT_DEFAULT_SECONDS = 5;
 
     private BrowserFactory() {
     }
