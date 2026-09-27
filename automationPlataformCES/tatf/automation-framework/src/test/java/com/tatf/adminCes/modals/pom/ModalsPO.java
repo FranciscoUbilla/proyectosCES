@@ -1,6 +1,5 @@
 package com.tatf.adminCes.modals.pom;
 
-import com.tatf.adminCes.Selectors;
 import com.tatf.core.browser.IBrowser;
 
 public class ModalsPO {

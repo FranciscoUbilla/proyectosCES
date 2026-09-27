@@ -1,10 +1,5 @@
 package com.tatf.adminCes.register.test;
 
-import com.tatf.adminCes.Generator;
-import com.tatf.adminCes.Selectors;
-import com.tatf.core.verification.IVerify;
-import org.junit.jupiter.api.Test;
-
 public class CreateAdminTest {
    /* @Test
     void test_ADMINCES001_createAdminAccount() {

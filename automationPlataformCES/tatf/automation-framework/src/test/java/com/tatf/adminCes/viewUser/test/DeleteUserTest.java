@@ -1,12 +1,11 @@
 package com.tatf.adminCes.viewUser.test;
-import com.tatf.adminCes.Generator;
-import com.tatf.adminCes.Selectors;
+import com.tatf.adminCes.base.Generator;
 import com.tatf.adminCes.base.BaseTest;
 import com.tatf.adminCes.base.TestExecutionsUtils;
 import com.tatf.adminCes.createTester.data.CreateTesterData;
 import com.tatf.adminCes.createTester.task.CreateTesterTask;
-import com.tatf.adminCes.login.data.LoginData;
-import com.tatf.adminCes.login.task.LoginTask;
+import com.tatf.adminCes.Authenticator.data.LoginData;
+import com.tatf.adminCes.Authenticator.task.AuthenticatorTask;
 import com.tatf.adminCes.viewUser.task.ViewUserTask;
 import com.tatf.core.element.Element;
 import org.junit.jupiter.api.Assertions;
@@ -17,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 public class DeleteUserTest extends BaseTest {
-    private LoginTask login;
+    private AuthenticatorTask login;
     private ViewUserTask viewUser;
     private LoginData loginData;
     private CreateTesterData createTesterData;
@@ -26,7 +25,7 @@ public class DeleteUserTest extends BaseTest {
     @BeforeEach
     public void config(){
         this.loginData = new LoginData();
-        this.login = new LoginTask(browser);
+        this.login = new AuthenticatorTask(browser);
         this.viewUser = new ViewUserTask(browser);
         this.createTesterData = new CreateTesterData();
         this.createTester = new CreateTesterTask(browser);
@@ -51,10 +50,6 @@ public class DeleteUserTest extends BaseTest {
             System.out.println("se va a crear el usuario: " + createTesterData.testerEmail);
             createTester.createTester(createTesterData.testerFirstName, createTesterData.testerLastName, createTesterData.testerEmail, createTesterData.testerPassword, createTesterData.countryOption, createTesterData.userRolOption);
             viewUser.deleteUser(createTesterData.testerEmail);
-            List<Element> emailCells = browser.find().cssList(Selectors.ADMINCES_VIEWUSERS_EMAIL_TD);
-            boolean userFound = emailCells.stream().anyMatch(cell -> cell.getText().equalsIgnoreCase(createTesterData.testerEmail));
-            Assertions.assertFalse(userFound, "El usuario " + createTesterData.testerEmail + " todavia aparece en la lista");
-            message.messageResultObtained(userFound);
         });
     }
 }

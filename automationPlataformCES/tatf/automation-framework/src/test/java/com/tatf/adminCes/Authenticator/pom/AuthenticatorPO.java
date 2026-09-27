@@ -1,18 +1,20 @@
-package com.tatf.adminCes.login.pom;
+package com.tatf.adminCes.Authenticator.pom;
 
-import com.tatf.adminCes.Selectors;
 import com.tatf.core.browser.IBrowser;
 
-public class LoginPO {
+public class AuthenticatorPO {
     private final IBrowser browser;
+    private final String ADMINCES_MENUUSER_LOGOUT_BUTTON = ".dropdown-menu > li:last-child a";
     private final String ADMINCES_LANDING_HASH_INPUT = "input[type='password']";
     private final String ADMINCES_LANDING_LOGINPROYECT_SUBMIT_BUTTON = "button[type='submit']";
     private final String ADMINCES_LOGIN_GOLOGIN_BUTTON = ".container-fluid a[href*='login']";
     private final String ADMINCES_LOGIN_EMAIL_INPUT = "#formLogin > div:nth-of-type(1) input";
     private final String ADMINCES_LOGIN_PASSWORD_INPUT = "#formLogin > div:nth-of-type(2) input";
     private final String ADMINCES_LOGIN_BUTTON = "#formLogin > div:nth-of-type(3) button";
-    public LoginPO(IBrowser browser){this.browser = browser;}
 
+    public AuthenticatorPO(IBrowser browser){
+        this.browser = browser;
+    }
     public void enterHash (String HASH){
         browser.find().css(ADMINCES_LANDING_HASH_INPUT).write(HASH);
     }
@@ -31,5 +33,9 @@ public class LoginPO {
     }
     public void clickLoginButton(){
         browser.find().css(ADMINCES_LOGIN_BUTTON).click();
+    }
+
+    public void clickLogoutButton(){
+        browser.find().css(ADMINCES_MENUUSER_LOGOUT_BUTTON).click();
     }
 }

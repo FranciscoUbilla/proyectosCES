@@ -1,9 +1,12 @@
 package com.tatf.adminCes.viewUser.task;
 
-import com.tatf.adminCes.Selectors;
 import com.tatf.adminCes.modals.pom.ModalsPO;
 import com.tatf.adminCes.viewUser.pom.ViewUserPO;
 import com.tatf.core.browser.IBrowser;
+import com.tatf.core.element.Element;
+import org.junit.jupiter.api.Assertions;
+
+import java.util.List;
 
 public class ViewUserTask {
     private final IBrowser browser;
@@ -19,5 +22,6 @@ public class ViewUserTask {
         viewUser.clickDeleteUser(testEmail);
         modals.clickYesQuestionModal();
         modals.clickConfirmSuccessFullyModal();
+        viewUser.verifyDeletetUsers(testEmail);
     }
 }

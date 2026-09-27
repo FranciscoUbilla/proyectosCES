@@ -1,4 +1,4 @@
-package com.tatf.adminCes;
+package com.tatf.adminCes.base;
 
 public class Generator {
 

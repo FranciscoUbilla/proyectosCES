@@ -1,6 +1,5 @@
 package com.tatf.adminCes.createTester.pom;
 
-import com.tatf.adminCes.Selectors;
 import com.tatf.adminCes.createTester.data.CreateTesterData;
 import com.tatf.core.browser.IBrowser;
 

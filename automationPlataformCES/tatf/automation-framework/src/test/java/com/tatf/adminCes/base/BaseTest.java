@@ -1,7 +1,5 @@
 package com.tatf.adminCes.base;
 
-import com.tatf.adminCes.ConsoleMessage;
-import com.tatf.adminCes.Methods;
 import com.tatf.core.browser.BrowserFactory;
 import com.tatf.core.browser.IBrowser;
 import org.junit.jupiter.api.AfterEach;
@@ -11,14 +9,12 @@ import org.junit.jupiter.api.TestInfo;
 public class BaseTest {
 
     protected static IBrowser browser;
-    protected static Methods methods;
     protected static ConsoleMessage message;
     protected static String URL;
     protected static String HASH;
     @BeforeEach
     void beforeEach(TestInfo testInfo){
         browser = BrowserFactory.getBrowser(true);
-        methods = new Methods(browser);
         message = new ConsoleMessage();
         message.messageStartTest(testInfo.getDisplayName());
         HASH = "3)ea60e0be3ba12c6ecd%7297868%5c4";
