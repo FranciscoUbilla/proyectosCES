@@ -1,5 +1,7 @@
 package com.tatf.adminCes;
 
+import com.tatf.adminCes.createTester.data.CreateTesterData;
+
 public class Selectors {
 
     public static String ADMINCES_LANDING_HASH_INPUT = "input[type='password']";
@@ -32,15 +34,15 @@ public class Selectors {
     public static String ADMINCES_CREATETESTER_LASTNAME_INPUT = "#formCreateUser > .form-group:nth-of-type(1) > div:nth-of-type(2) input";
     public static String ADMINCES_CREATETESTER_EMAIL_INPUT = "#formCreateUser > .form-group:nth-of-type(2) input";
     public static String ADMINCES_CREATETESTER_COUNTRY_SELECT = "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(1) select";
-    public static String ADMINCES_CREATETESTER_COUNTRY_OPTION = "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(1) select > option:nth-of-type("+Variables.countrOption+")";
+   // public static String ADMINCES_CREATETESTER_COUNTRY_OPTION = "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(1) select > option:nth-of-type("+ CreateTesterData.countrOption+")";
     public static String ADMINCES_CREATETESTER_PASSWORD_INPUT = "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(2) input";
-    public static String ADMINCES_CREATETESTER_ROLOPTION_INPUT = "#formCreateUser > .form-group:nth-of-type(4) > div:nth-of-type("+Variables.userRolOption+")";
+    //public static String ADMINCES_CREATETESTER_ROLOPTION_INPUT = "#formCreateUser > .form-group:nth-of-type(4) > div:nth-of-type("+Variables.userRolOption+")";
     public static String ADMINCES_CREATETESTER_CONFIRM_BUTTON = "#formCreateUser > .form-group:nth-of-type(5) button";
     public static String ADMINCES_VIEWUSERS_GOTOVIEWUSERS_BUTTON = ".container-fluid a[href*='view-users']";
     public static String ADMINCES_VIEWUSERS_EMAIL_TD = "#bodyTable > tr > td:nth-of-type(3)";
-    public static String ADMINCES_VIEWUSER_DELETE_BUTTON() {
+    /*public static String ADMINCES_VIEWUSER_DELETE_BUTTON() {
         return "[id=\"" + Variables.testerEmail + "\"]";
-    }
+    }*/
 
 }
 
