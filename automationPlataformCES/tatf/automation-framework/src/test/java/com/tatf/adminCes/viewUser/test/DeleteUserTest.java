@@ -50,9 +50,7 @@ public class DeleteUserTest extends BaseTest {
             login.login(loginData.adminEmail, loginData.adminPassword);
             System.out.println("se va a crear el usuario: " + createTesterData.testerEmail);
             createTester.createTester(createTesterData.testerFirstName, createTesterData.testerLastName, createTesterData.testerEmail, createTesterData.testerPassword, createTesterData.countryOption, createTesterData.userRolOption);
-            //browser.find().css(Selectors.ADMINCES_VIEWUSER_DELETE_BUTTON()).click();
-            //methods.clickYesQuestionModal();
-            // methods.clickConfirmModal();
+            viewUser.deleteUser(createTesterData.testerEmail);
             List<Element> emailCells = browser.find().cssList(Selectors.ADMINCES_VIEWUSERS_EMAIL_TD);
             boolean userFound = emailCells.stream().anyMatch(cell -> cell.getText().equalsIgnoreCase(createTesterData.testerEmail));
             Assertions.assertFalse(userFound, "El usuario " + createTesterData.testerEmail + " todavia aparece en la lista");

@@ -17,5 +17,6 @@ public class ModalsPO {
     public void clickYesQuestionModal(){
         browser.find().css(ADMINCES_LOGOUT_MODAL_YES_BUTTON).click();
     }
+
 }
 
