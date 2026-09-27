@@ -1,7 +1,6 @@
 package com.tatf.adminCes.login.pom;
 
 import com.tatf.adminCes.Selectors;
-import com.tatf.adminCes.Variables;
 import com.tatf.core.browser.IBrowser;
 
 public class LoginPO {

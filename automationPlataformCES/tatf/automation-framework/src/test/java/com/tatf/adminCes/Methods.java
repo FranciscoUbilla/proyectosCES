@@ -41,9 +41,7 @@ public class Methods {
         browser.find().css(Selectors.ADMINCES_MENUUSER_LOGOUT_BUTTON).click();
     }
 
-    public void clickConfirmModal(){
-        browser.find().css(Selectors.ADMINCES_SUCCESSFULLYMODAL_OK_BUTTON).click();
-    }
+
     public void clickYesQuestionModal(){
         browser.find().css(Selectors.ADMINCES_LOGOUT_MODAL_YES_BUTTON).click();
     }

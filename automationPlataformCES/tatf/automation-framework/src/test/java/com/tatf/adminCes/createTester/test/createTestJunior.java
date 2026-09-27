@@ -1,14 +1,5 @@
 package com.tatf.adminCes.createTester.test;
 
-import com.tatf.adminCes.Generator;
-import com.tatf.adminCes.Selectors;
-import com.tatf.adminCes.Variables;
-import com.tatf.core.element.Element;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 /*public class createTestJunior {
     @Test
     void test_ADMINCES003_createTester() {

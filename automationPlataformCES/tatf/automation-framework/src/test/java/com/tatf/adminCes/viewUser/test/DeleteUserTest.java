@@ -1,8 +1,6 @@
 package com.tatf.adminCes.viewUser.test;
-
 import com.tatf.adminCes.Generator;
 import com.tatf.adminCes.Selectors;
-import com.tatf.adminCes.Variables;
 import com.tatf.adminCes.base.BaseTest;
 import com.tatf.adminCes.createTester.data.CreateTesterData;
 import com.tatf.adminCes.login.data.LoginData;
@@ -46,16 +44,15 @@ public class DeleteUserTest extends BaseTest {
         login.goToAdminCes(URL);
         login.loginProyect(HASH);
         login.login(loginData.adminEmail, loginData.adminPassword);
-        methods.clickConfirmModal();
         methods.clickGoFormNewTester();
         System.out.println("se va a crear el usuario: "+createTesterData.testerEmail);
         methods.fillFormCreateTester(createTesterData.testerFirstName, createTesterData.testerLastName, createTesterData.testerEmail, createTesterData.testerPassword);
         methods.clickConfirmNewTester();
-        methods.clickConfirmModal();
-       // methods.clickGoViewUsers();
+        //methods.clickConfirmModal();
+        //methods.clickGoViewUsers();
         //browser.find().css(Selectors.ADMINCES_VIEWUSER_DELETE_BUTTON()).click();
         methods.clickYesQuestionModal();
-        methods.clickConfirmModal();
+       // methods.clickConfirmModal();
         List<Element> emailCells = browser.find().cssList(Selectors.ADMINCES_VIEWUSERS_EMAIL_TD);
         boolean userFound = emailCells.stream().anyMatch(cell -> cell.getText().equalsIgnoreCase(createTesterData.testerEmail));
         Assertions.assertFalse(userFound, "El usuario " + createTesterData.testerEmail+ " todavia aparece en la lista");
