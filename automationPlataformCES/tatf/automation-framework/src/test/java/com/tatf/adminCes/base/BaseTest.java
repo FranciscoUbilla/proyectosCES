@@ -28,5 +28,7 @@ public class BaseTest {
     void afterEach(){
         message.messageEndTest();
         BrowserFactory.quitBrowser();
+
+
     }
 }

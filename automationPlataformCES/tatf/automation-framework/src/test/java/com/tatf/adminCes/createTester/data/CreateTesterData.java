@@ -1,7 +1,7 @@
 package com.tatf.adminCes.createTester.data;
 
 public class CreateTesterData {
-    public String countrOption;
+    public String countryOption;
     public String userRolOption;
     public String testerEmail;
     public String testerFirstName;
