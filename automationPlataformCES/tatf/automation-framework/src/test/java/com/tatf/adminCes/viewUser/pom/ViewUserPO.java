@@ -3,32 +3,36 @@ package com.tatf.adminCes.viewUser.pom;
 import com.tatf.adminCes.base.ConsoleMessage;
 import com.tatf.core.browser.IBrowser;
 import com.tatf.core.element.Element;
-import org.junit.jupiter.api.Assertions;
+import com.tatf.core.find.Find;
+import com.tatf.core.verification.IVerify;
+
 
 import java.util.List;
 public class ViewUserPO {
     private final IBrowser browser;
     private final String ADMINCES_VIEWUSERS_GOTOVIEWUSERS_BUTTON = ".container-fluid a[href*='view-users']";
     private final String ADMINCES_VIEWUSERS_EMAIL_TD = "#bodyTable > tr > td:nth-of-type(3)";
+
     private static String ADMINCES_VIEWUSER_DELETE_BUTTON(String testerEmail) {
-        return "[id=\""+testerEmail+"\"]";
+        return "[id=\"" + testerEmail + "\"]";
     }
     ConsoleMessage message;
-    public ViewUserPO (IBrowser browser) {
+    public ViewUserPO(IBrowser browser) {
         this.browser = browser;
         message = new ConsoleMessage();
     }
-    public void clickGoViewUsers(){
+    public void clickGoViewUsers() {
         browser.find().css(ADMINCES_VIEWUSERS_GOTOVIEWUSERS_BUTTON).click();
     }
-    public void clickDeleteUser(String testerEmail){
+    public void clickDeleteUser(String testerEmail) {
         browser.find().css(ADMINCES_VIEWUSER_DELETE_BUTTON(testerEmail)).click();
     }
-    public void verifyDeletetUsers(String testerEmail){
-        List<Element> emailCells = browser.find().cssList(ADMINCES_VIEWUSERS_EMAIL_TD);
-        boolean userFound = emailCells.stream().anyMatch(cell -> cell.getText().equalsIgnoreCase(testerEmail));
-        Assertions.assertFalse(userFound, "El usuario " + testerEmail + " todavia aparece en la lista");
-        message.messageResultObtained(userFound);
-
+    public List <Element> getEmailUsers(String listUsers) {
+        return browser.find().cssList(listUsers);
     }
+    public boolean iterateList(String testerEmail)
+    {
+        return Find.existsListElement(getEmailUsers(ADMINCES_VIEWUSERS_EMAIL_TD), Element::getText, testerEmail);
+    }
+
 }

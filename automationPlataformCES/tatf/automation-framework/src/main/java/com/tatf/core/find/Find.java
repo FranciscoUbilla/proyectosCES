@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class Find {
     private static final int DEFAUTL_DELAY_SECONDS = 2;
@@ -221,4 +222,10 @@ public class Find {
     public List<Element> cssList(String locator) {
         return finds(By.cssSelector(locator));
     }
+
+    public static <T> boolean existsListElement(List<T> items, Function<T, String> extractor, String target) {
+        return items.stream()
+                .anyMatch(item -> extractor.apply(item).equalsIgnoreCase(target));
+    }
+
 }
