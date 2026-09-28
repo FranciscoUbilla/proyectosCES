@@ -6,6 +6,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 
+
+//Se que mi sistema aun tiene selectores que dependen de la posicion, para la proxima entrega los mejoro.
+
 public class BaseTest {
 
     protected static IBrowser browser;
