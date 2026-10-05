@@ -24,4 +24,36 @@ public class CreateTesterData {
         dataTester.testerEmail = Generator.generateEmail(dataTester.testerFirstName, dataTester.testerLastName, dataTester.testerDomain, dataTester.testerTLD);
         return dataTester;
     }
+
+    public CreateTesterData withFirstName(String firstName) {
+        this.testerFirstName = firstName;
+        this.testerEmail = Generator.generateEmail(this.testerFirstName, this.testerLastName, this.testerDomain, this.testerTLD);
+        return this;
+    }
+
+    public CreateTesterData withLastName(String lastName) {
+        this.testerLastName = lastName;
+        this.testerEmail = Generator.generateEmail(this.testerFirstName, this.testerLastName, this.testerDomain, this.testerTLD);
+        return this;
+    }
+
+    public CreateTesterData withEmail(String email) {
+        this.testerEmail = email;
+        return this;
+    }
+
+    public CreateTesterData withPassword(String password) {
+        this.testerPassword = password;
+        return this;
+    }
+
+    public CreateTesterData withCountry(String country) {
+        this.countryOption = country;
+        return this;
+    }
+
+    public CreateTesterData withRole(String role) {
+        this.userRolOption = role;
+        return this;
+    }
 }

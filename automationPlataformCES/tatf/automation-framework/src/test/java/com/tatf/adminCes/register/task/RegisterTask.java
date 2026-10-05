@@ -33,7 +33,7 @@ public class RegisterTask {
     }
     public void register(RegisterData data, String registerBodyModal){
         register.clickGoRegisterButton();
-        register.enterRegisterFirstName(data.firstname);
+        register.enterRegisterFirstName(data.firstName);
         register.enterRegisterLastName(data.lastName);
         register.enterRegisterEmail(data.email);
         register.enterRegisterPassword(data.password);

@@ -11,6 +11,9 @@ import com.tatf.adminCes.viewUser.task.ViewUserTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class DeleteUserTest extends BaseTest {
     private AuthenticatorTask login;
@@ -32,11 +35,12 @@ public class DeleteUserTest extends BaseTest {
         this.modals = new ModalsData();
         this.authData = new AuthData();
     }
-    @Test
     @DisplayName("Borrar tester junior test_001")
-    void test_ADMINCES001_deleteTester() {
+    @ParameterizedTest
+    @ValueSource(strings = {"1","2","3"})
+    void test_ADMINCES001_deleteTester(String rol) {
         utils.runSafely(() -> {
-            dataTester.userRolOption = "2";
+            dataTester.userRolOption = rol;
             login.enterSystem(URL, HASH);
             login.login(authDeleteData.adminEmail, authDeleteData.adminPassword, authData.loginBodyModal);
             System.out.println("se va a crear el usuario: " + dataTester.testerEmail);

@@ -10,11 +10,6 @@ public class TestForm2 {
 
     private static IBrowser browser;
 
-    @BeforeAll
-    static void beforeAll() {
-        browser = BrowserFactory.getBrowser(true);
-    }
-
     @AfterAll
     static void afterAll() {
         BrowserFactory.quitBrowser();

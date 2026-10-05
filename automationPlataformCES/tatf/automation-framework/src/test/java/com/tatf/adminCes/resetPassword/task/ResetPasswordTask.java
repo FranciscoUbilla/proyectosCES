@@ -32,16 +32,16 @@ public class ResetPasswordTask {
         this.modals = new ModalsTask(this.browser);
         this.profileDetails = new ProfileDetailsTask(this.browser);
     }
-    public void resetPassword(ResetPasswordData data, String bodyRessModal){
+    public void resetPassword(ResetPasswordData data,String email, String bodyRessModal ){
         resetPass.clickGoResetPassword();
-        resetPass.enterEmailResetPassword(data.emailResPass);
+        resetPass.enterEmailResetPassword(email);
         resetPass.enterNewPassword(data.newPasswordResPass);
         resetPass.enterConfirmNewPassword(data.confirmNewPasswordResPass);
         resetPass.clickConfirmNewPassword();
         modals.clickAndVerifyConfirmSuccessFullyModal(bodyRessModal);
     }
     public void resetPasswordAndVerify(ResetPasswordData data, String email, String password,  String option,String bodyResModal,String bodyLogOutQuestionModal, String bodyLogoutSuccessModal, String bodyLoginSuccessfullyModal){
-        resetPassword(data, bodyResModal);
+        resetPassword(data, email, bodyResModal);
         verifyResetPassword(email, password, option, bodyLogOutQuestionModal, bodyLogoutSuccessModal, bodyLoginSuccessfullyModal);
     }
     public void verifyResetPassword(String email, String password, String option, String bodyLogOutQuestionModal, String bodyLogoutSuccessModal, String bodyLoginSuccessfullyModal){

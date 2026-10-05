@@ -34,9 +34,9 @@ public class CreateTesterTask {
         createTester.clickConfirmNewTester();
         modals.clickConfirmSuccessFullyModal();
     }
-    public void createTesterAndVerify(CreateTesterData data, String testerEmail){
+    public void createTesterAndVerify(CreateTesterData data){
         this.createTester(data);
         viewPO.clickGoViewUsers();
-        viewTask.verifyExistUser(testerEmail);
+        viewTask.verifyExistUser(data.testerEmail);
     }
 }

@@ -9,6 +9,9 @@ import com.tatf.adminCes.createTester.task.CreateTesterTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class CreateTesterTest extends BaseTest {
     private AuthenticatorTask login;
@@ -24,14 +27,20 @@ public class CreateTesterTest extends BaseTest {
         this.createTester = new CreateTesterTask(browser);
         this.utils = new TestExecutionsUtils();
     }
-    @Test
     @DisplayName("Crear tester junior test_001")
-    void test_ADMINCES001_createTester() {
+    @ParameterizedTest
+    @CsvSource({
+            "Leonardo, Perez, 1",
+            "Laura, Magallanes, 2",
+            "Nahuel, Torena, 3"
+    })
+    void test_ADMINCES001_createTester(String firstName, String lastName, String rolOption) {
+        dataTester =  CreateTesterData.defaults().withFirstName(firstName).withLastName(lastName).withRole(rolOption);
         utils.runSafely(() -> {
         login.enterSystem(URL, HASH);
         login.login(authData.adminEmail, authData.adminPassword, authData.loginBodyModal);
         System.out.println("se va a crear el usuario: "+dataTester.testerEmail);
-        createTester.createTesterAndVerify(dataTester, dataTester.testerEmail);
+        createTester.createTesterAndVerify(dataTester);
         });
     }
 }

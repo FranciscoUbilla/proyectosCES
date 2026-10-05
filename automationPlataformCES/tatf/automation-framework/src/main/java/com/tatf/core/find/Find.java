@@ -3,6 +3,7 @@ package com.tatf.core.find;
 import com.tatf.core.driver.instance.DriverManagerSingleton;
 import com.tatf.core.element.Element;
 import com.tatf.core.interaction.Interaction;
+import com.tatf.core.util.ConfigReader;
 import com.tatf.core.util.ResourceLoader;
 import com.tatf.core.wait.Wait;
 import org.openqa.selenium.By;
@@ -14,7 +15,8 @@ import java.util.List;
 import java.util.function.Function;
 
 public class Find {
-    private static final int DEFAUTL_DELAY_SECONDS = 2;
+    private static final int DEFAUTL_DELAY_SECONDS = new ConfigReader("config.properties")
+            .asInt("find.defautl_delay_seconds");
 
     private final DriverManagerSingleton instance;
     private final String highlightScript = ResourceLoader.loadAsString("js/highlight.js");
@@ -43,7 +45,7 @@ public class Find {
 
         if (this.debugging) {
             new Interaction(this.instance).javaScriptExecutor(highlightScript, webElement);
-            new Wait(2).sleep();
+            new Wait(DEFAUTL_DELAY_SECONDS).sleep();
         }
 
         return new Element(this.instance, webElement);

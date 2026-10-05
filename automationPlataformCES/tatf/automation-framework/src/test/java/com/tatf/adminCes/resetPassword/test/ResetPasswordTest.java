@@ -9,7 +9,8 @@ import com.tatf.adminCes.resetPassword.data.ResetPasswordData;
 import com.tatf.adminCes.resetPassword.task.ResetPasswordTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class ResetPasswordTest extends BaseTest {
     private AuthenticatorTask auth;
@@ -28,14 +29,15 @@ public class ResetPasswordTest extends BaseTest {
         this.modals = new ModalsData();
         this.authData = new AuthData();
     }
-    @Test
     @DisplayName("Reset password test_001")
-    void test_ADMINCES001_resetPassword() {
+    @ParameterizedTest
+    @ValueSource(strings = {"yaniscorrea@gmail.com","leonardoperez@gmail.com"})
+    void test_ADMINCES001_resetPassword(String email) {
         utils.runSafely(()->{
             auth.enterSystem(URL, HASH);
-            auth.login(ressData.emailResPass, ressData.passwordResPass, authData.loginBodyModal);
-            System.out.println("Se resetea password a usuario: "+ressData.emailResPass);
-            ressPass.resetPasswordAndVerify(ressData,ressData.emailResPass,ressData.newPasswordResPass, modals.optionYes,ressData.bodyResetModal, authData.logoutQuestionModal,
+            auth.login(email, ressData.passwordResPass, authData.loginBodyModal);
+            System.out.println("Se resetea password a usuario: "+email);
+            ressPass.resetPasswordAndVerify(ressData,email,ressData.newPasswordResPass, modals.optionYes,ressData.bodyResetModal, authData.logoutQuestionModal,
                     authData.logoutBodyModal, authData.loginBodyModal);
         });
     }
