@@ -5,12 +5,12 @@ import com.tatf.core.browser.IBrowser;
 public class RegisterPO {
     private final IBrowser browser;
     private final String ADMINCES_REGISTER_GOREGISTER_BUTTON = "#content a[href*='register']";
-    private final String ADMINCES_REGISTER_FIRSTNAME_INPUT = "form > .form-group:nth-of-type(1) > div:nth-of-type(1) input";
-    private final String ADMINCES_REGISTER_LASTNAME_INPUT = "form > .form-group:nth-of-type(1) > div:nth-of-type(2) input";
-    private final String ADMINCES_REGISTER_EMAIL_INPUT = "form > .form-group:nth-of-type(2) input";
-    private final String ADMINCES_REGISTER_PASSWORD_INPUT = "form > .form-group:nth-of-type(3) > div:nth-of-type(1) input";
-    private final String ADMINCES_REGISTER_CONFIRMPASSWORD_INPUT = "form > .form-group:nth-of-type(3) > div:nth-of-type(2) input";
-    private final String ADMINCES_REGISTER_COUNTRY_INPUT = "form > .form-group:nth-of-type(4) input";
+    private final String ADMINCES_REGISTER_FIRSTNAME_INPUT = "[name='inputFirstName']";
+    private final String ADMINCES_REGISTER_LASTNAME_INPUT = "[name='inputLastName']";
+    private final String ADMINCES_REGISTER_EMAIL_INPUT = "[name='inputEmail']";
+    private final String ADMINCES_REGISTER_PASSWORD_INPUT = "[name='inputPassword']";
+    private final String ADMINCES_REGISTER_CONFIRMPASSWORD_INPUT = "[name='inputRepeatPassword']";
+    private final String ADMINCES_REGISTER_COUNTRY_INPUT = "[name='inputCountry']";
     private final String ADMINCES_REGISTER_BUTTON = "#btnRegister";
     public RegisterPO (IBrowser browser) {this.browser = browser;}
 

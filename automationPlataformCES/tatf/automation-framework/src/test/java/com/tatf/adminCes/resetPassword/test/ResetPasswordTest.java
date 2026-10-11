@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-@Tag("Reset password")
+@Tag("reset_password")
 
 public class ResetPasswordTest extends BaseTest {
     private AuthenticatorTask auth;

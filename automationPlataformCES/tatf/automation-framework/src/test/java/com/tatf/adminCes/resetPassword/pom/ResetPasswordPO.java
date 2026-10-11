@@ -6,10 +6,10 @@ public class ResetPasswordPO {
     private final IBrowser browser;
 
     private final String ADMINCES_RESETPASSWORD_GOTORESETPASS_BUTTON = ".container-fluid a[href*='password']";
-    private final String ADMINCES_RESETPASSWORD_EMAIL_INPUT = "#formResetPassword .form-group > input:nth-of-type(1)";
-    private final String ADMINCES_RESETPASSWORD_PASSWORD_INPUT = "#formResetPassword .form-group > input:nth-of-type(2)";
-    private final String ADMINCES_RESETPASSWORD_REPEATPASSWORD_INPUT = "#formResetPassword .form-group > input:nth-of-type(3)";
-    private final String ADMINCES_RESETPASSWORD_CONFIRM_BUTTON = "#formResetPassword .form-group button";
+    private final String ADMINCES_RESETPASSWORD_EMAIL_INPUT = "[name='inputEmail']";
+    private final String ADMINCES_RESETPASSWORD_PASSWORD_INPUT = "[name='inputPassword']";
+    private final String ADMINCES_RESETPASSWORD_REPEATPASSWORD_INPUT = "[name='inputRepeatPassword']";
+    private final String ADMINCES_RESETPASSWORD_CONFIRM_BUTTON = "#btnReset";
     public ResetPasswordPO(IBrowser browser) {this.browser = browser;}
 
 

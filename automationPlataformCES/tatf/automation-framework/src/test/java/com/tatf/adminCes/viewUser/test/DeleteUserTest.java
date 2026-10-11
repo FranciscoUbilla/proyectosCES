@@ -15,7 +15,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-@Tag("Delete user")
+@Tag("delete_user")
 public class DeleteUserTest extends BaseTest {
     private AuthenticatorTask login;
     private ViewUserTask viewUser;

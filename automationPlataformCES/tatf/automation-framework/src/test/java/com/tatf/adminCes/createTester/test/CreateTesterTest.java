@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-@Tag("Create tester")
+@Tag("create_tester")
 
 public class CreateTesterTest extends BaseTest {
     private AuthenticatorTask login;

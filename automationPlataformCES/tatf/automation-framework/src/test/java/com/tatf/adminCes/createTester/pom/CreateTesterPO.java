@@ -7,18 +7,18 @@ public class CreateTesterPO {
     private final IBrowser browser;
     private final CreateTesterData testerData;
     private final String ADMINCES_CREATETESTER_GOFORM_BUTTON = ".container-fluid a[href*='create-user']";
-    private final String ADMINCES_CREATETESTER_FIRSTNAME_INPUT = "#formCreateUser > .form-group:nth-of-type(1) > div:nth-of-type(1) input";
-    private final String ADMINCES_CREATETESTER_LASTNAME_INPUT = "#formCreateUser > .form-group:nth-of-type(1) > div:nth-of-type(2) input";
-    private final String ADMINCES_CREATETESTER_EMAIL_INPUT = "#formCreateUser > .form-group:nth-of-type(2) input";
-    private final String ADMINCES_CREATETESTER_COUNTRY_SELECT = "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(1) select";
+    private final String ADMINCES_CREATETESTER_FIRSTNAME_INPUT = "[name='inputFirstName']";
+    private final String ADMINCES_CREATETESTER_LASTNAME_INPUT = "[name='inputLastName']";
+    private final String ADMINCES_CREATETESTER_EMAIL_INPUT = "[name='inputEmail']";
+    private final String ADMINCES_CREATETESTER_COUNTRY_SELECT = "[name='inputCountry']";
     private static String ADMINCES_CREATETESTER_COUNTRY_OPTION(String countryOption){
         return "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(1) select > option:nth-of-type("+countryOption+")";
     }
-    private final String ADMINCES_CREATETESTER_PASSWORD_INPUT = "#formCreateUser > .form-group:nth-of-type(3) > div:nth-of-type(2) input";
+    private final String ADMINCES_CREATETESTER_PASSWORD_INPUT = "[name='inputPassword']";
     private static String ADMINCES_CREATETESTER_ROLOPTION_INPUT (String testerRolOption){
         return "#formCreateUser > .form-group:nth-of-type(4) > div:nth-of-type("+testerRolOption+")";
     }
-    private final String ADMINCES_CREATETESTER_CONFIRM_BUTTON = "#formCreateUser > .form-group:nth-of-type(5) button";
+    private final String ADMINCES_CREATETESTER_CONFIRM_BUTTON = "#btnRegister";
     public CreateTesterPO(IBrowser browser){
         this.browser = browser;
         this.testerData = new CreateTesterData();
