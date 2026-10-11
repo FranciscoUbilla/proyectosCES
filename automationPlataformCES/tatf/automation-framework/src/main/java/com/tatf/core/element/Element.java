@@ -2,6 +2,8 @@ package com.tatf.core.element;
 
 import com.tatf.core.driver.instance.DriverManagerSingleton;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -27,7 +29,12 @@ public class Element {
      * Hace click sobre el elemento.
      */
     public Element click() {
-        this.webElement.click();
+        try {
+            this.webElement.click();
+        } catch (ElementClickInterceptedException e) {
+            ((JavascriptExecutor) instance.getDriver())
+                    .executeScript("arguments[0].click();", this.webElement);
+        }
         return this;
     }
 
