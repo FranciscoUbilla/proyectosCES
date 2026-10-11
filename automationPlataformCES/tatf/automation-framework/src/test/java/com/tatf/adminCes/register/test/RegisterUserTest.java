@@ -8,9 +8,12 @@ import com.tatf.adminCes.register.data.RegisterData;
 import com.tatf.adminCes.register.task.RegisterTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+@Tag("register")
 
 public class RegisterUserTest extends BaseTest {
     private AuthenticatorTask login;
@@ -33,6 +36,7 @@ public class RegisterUserTest extends BaseTest {
            "Laura, Magallanes, 5, 5",
            "Nahuel, Torena, 12345, 12345"
    })
+   @Tag("regresion")
    void test_ADMINCES001_registerUser(String firstName, String lastName, String newPassword, String confirmNewPassword) {
        dataRegister =  RegisterData.defaults().withFirstName(firstName).withLastName(lastName).withNewPassword(newPassword).withConfirmNewPassword(confirmNewPassword);
         utils.runSafely(()->{

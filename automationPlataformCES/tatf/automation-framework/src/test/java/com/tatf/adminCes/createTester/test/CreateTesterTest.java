@@ -8,10 +8,11 @@ import com.tatf.adminCes.createTester.data.CreateTesterData;
 import com.tatf.adminCes.createTester.task.CreateTesterTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
+
+@Tag("Create tester")
 
 public class CreateTesterTest extends BaseTest {
     private AuthenticatorTask login;
@@ -34,6 +35,7 @@ public class CreateTesterTest extends BaseTest {
             "Laura, Magallanes, 2",
             "Nahuel, Torena, 3"
     })
+    @Tag("regresion")
     void test_ADMINCES001_createTester(String firstName, String lastName, String rolOption) {
         dataTester =  CreateTesterData.defaults().withFirstName(firstName).withLastName(lastName).withRole(rolOption);
         utils.runSafely(() -> {

@@ -9,8 +9,11 @@ import com.tatf.adminCes.resetPassword.data.ResetPasswordData;
 import com.tatf.adminCes.resetPassword.task.ResetPasswordTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+@Tag("Reset password")
 
 public class ResetPasswordTest extends BaseTest {
     private AuthenticatorTask auth;
@@ -32,6 +35,7 @@ public class ResetPasswordTest extends BaseTest {
     @DisplayName("Reset password test_001")
     @ParameterizedTest
     @ValueSource(strings = {"yaniscorrea@gmail.com","leonardoperez@gmail.com"})
+    @Tag("regresion")
     void test_ADMINCES001_resetPassword(String email) {
         utils.runSafely(()->{
             auth.enterSystem(URL, HASH);
